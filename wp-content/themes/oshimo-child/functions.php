@@ -65,3 +65,26 @@ add_action( 'wp_enqueue_scripts', 'oshimo_styles' );
 
 // Add block patterns
 require get_template_directory() . '/inc/block-patterns.php';
+
+function my_recent_post()
+ {
+      global $post;
+
+      $html = "";
+
+      $my_query = new WP_Query( array(
+           'post_type' => 'post',
+           'number' => 3
+      ));
+
+      if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
+
+           $html .= "<h2>" . get_the_title() . "</h2>";
+           $html .= "<p>" . get_the_excerpt() . "</p>";
+           $html .= "<a href=\"" . get_permalink() . "\" class=\"button\">Read more</a>";
+
+      endwhile; endif;
+
+      return $html;
+ }
+ add_shortcode( 'recent_post_test', 'my_recent_post' );

@@ -1,5 +1,5 @@
 /*
-Theme Name: Oshimo
+Theme Name: Oshimo Child
 Theme URI: https://wordpress.org/themes/oshimo/
 Author: the WordPress team
 Author URI: https://wordpress.org/
@@ -146,3 +146,24 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
 	padding-left: var(--wp--custom--spacing--outer);
 }
 
+.header_group.alignfull {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+.panel_header{
+	background-image: url(http://localhost/oshimo/wp-content/uploads/2022/09/1.png);
+    min-height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.header_container{
+	padding-top: 10px !important;
+    padding-left: 25px !important;
+    padding-right: 30px !important;
+}
+.header_navigation {
+	font-size: 15px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
