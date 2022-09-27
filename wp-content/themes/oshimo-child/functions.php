@@ -74,17 +74,98 @@ function my_recent_post()
 
       $my_query = new WP_Query( array(
            'post_type' => 'post',
-           'number' => 3
+           'posts_per_page' => 3
       ));
-
+	  $html .= '<style>
+	  	.news_panel{
+		  background-image: url("'.esc_url( get_template_directory_uri() ) . '/assets/images/news.png'.'"); 
+		  background-size: 100% 100%; 
+		  background-repeat: no-repeat; 
+		  background-position: center center; 
+		  min-height: 100%;
+	  	}
+	  	.sub_title{
+		  font-size: 12px; 
+		  color: #5BCAF8;
+		  font-weight: bold;
+		  text-align: center;
+		}
+		.header_title{
+		  font-family: sans-serif; 
+		  font-size: 50px; 
+		  font-weight: 500;
+		  margin: 15px auto 60px;
+		  text-align: center;
+		}
+		.panel_display_list_news{
+		  width: 50%; 
+		  margin: 0px auto;
+		}
+		.list_news{
+		  list-style: none;
+		  display: grid;
+		  font-size: 14px;
+		}
+		.list_news li{
+		  width: 100%;
+		  background: #fff;
+		  padding: 15px 10px 15px 30px;
+		  margin-bottom: 15px;
+		}
+		.news_date{
+		  width: 20%; 
+		  float: left;
+		  color: #5BCAF8; 
+		  padding: 5px 0px;
+		  font-family: "Overpass";
+		  font-weight: bold;
+		}
+		.news_title{
+		  width: 80%;
+		  float: left;
+		  color: #000;
+		  padding: 5px 0px;
+	  	}
+		@media only screen and (max-width: 600px) {
+			.list_news{
+				padding: 10px !important;
+			}
+			.panel_display_list_news {
+				width: auto;
+			}
+			.list_news li {
+				width: auto;
+				padding: 10px;
+				margin-bottom: 15px;
+			}
+			.news_date {
+				width: 30%;
+			}
+			.news_title {
+				width: 70%;
+			}
+		}
+	</style>
+	<div class= "news_panel">
+	  <div style="padding: 5% 0px;">
+		  <p class="sub_title">お知らせ</p>
+		  <h1 class="header_title">NEWS</h1>
+		  <div class="panel_display_list_news">
+			  <ul class="list_news">';
       if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
 
-           $html .= "<h2>" . get_the_title() . "</h2>";
-           $html .= "<p>" . get_the_excerpt() . "</p>";
-           $html .= "<a href=\"" . get_permalink() . "\" class=\"button\">Read more</a>";
+           $html .= "<li>";
+           $html .= "<a href=\"" . get_permalink() . "\">";
+           $html .= "<div class=\"news_date\">" . get_the_date( 'Y.m.d' ) . "</div>";
+           $html .= "<div class=\"news_title\">" . get_the_title() . "</div>";
+           $html .= "</a>";
+           $html .= "</li>";
 
       endwhile; endif;
-
+	  $html .= '</ul>
+			</div>
+		</div>
+		</div>';
       return $html;
  }
  add_shortcode( 'recent_post_test', 'my_recent_post' );
