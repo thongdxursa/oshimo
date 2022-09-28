@@ -175,7 +175,11 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
     font-weight: bold;
     font-family: sans-serif;
 }
-
+/*css banner image*/
+.panel_img_header{
+	position: relative;
+	margin-top: 0px !important;
+}
 /*css contact form*/
 .wp-block-spacer{
 	display: none;
@@ -188,7 +192,7 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
 }
 .oshimo_contact_form{
 	max-width: 100% !important;
-	background-image: url('http://localhost/oshimo/wp-content/uploads/2022/09/contact.png');
+	background-image: url('wp-content/themes/oshimo-child/assets/images/contact.png');
 	padding: 5% 5px;
 	position: relative;
     top: -45px;
