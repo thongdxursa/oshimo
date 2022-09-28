@@ -117,7 +117,6 @@ function my_recent_post()
 		  float: left;
 		  color: #5BCAF8; 
 		  padding: 5px 0px;
-		  font-family: "Overpass";
 		  font-weight: bold;
 		}
 		.news_title{
