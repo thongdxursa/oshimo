@@ -82,6 +82,7 @@ function my_recent_post()
 		  background-size: 100% 100%; 
 		  background-repeat: no-repeat; 
 		  background-position: center center; 
+		  max-height: 871px;
 		  min-height: 100%;
 	  	}
 	  	.sub_title{
