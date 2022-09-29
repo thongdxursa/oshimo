@@ -8,7 +8,7 @@
  * @subpackage Oshimo
  * @since Oshimo 1.0
  */
-
+wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&family=Overpass:wght@400;600;700&display=swap', false );    
 
 if ( ! function_exists( 'oshimo_support' ) ) :
 
@@ -56,7 +56,7 @@ if ( ! function_exists( 'oshimo_styles' ) ) :
 
 		// Enqueue theme stylesheet.
 		wp_enqueue_style( 'oshimo-style' );
-
+		wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&family=Overpass:wght@400;600;700&display=swap', false ); 
 	}
 
 endif;
@@ -74,7 +74,7 @@ function my_recent_post()
 
       $my_query = new WP_Query( array(
            'post_type' => 'post',
-           'posts_per_page' => 4
+		   'order'            => 'DESC'
       ));
 	  $html .= '<style>
 	  	.news_panel{
@@ -86,32 +86,38 @@ function my_recent_post()
 		  min-height: 100%;
 	  	}
 	  	.sub_title{
-		  font-size: 12px; 
+		  font-size: 16px; 
 		  color: #5BCAF8;
 		  font-weight: bold;
 		  text-align: center;
+		  font-family: "Noto Sans JP", sans-serif;
 		}
 		.header_title{
-		  font-family: sans-serif; 
-		  font-size: 50px; 
+		  font-family: "Overpass", sans-serif;
+		  font-size: 100px; 
 		  font-weight: 500;
 		  margin: 15px auto 60px;
 		  text-align: center;
+		  color: #222222;
 		}
 		.panel_display_list_news{
-		  width: 50%; 
+		  width: 1205px; 
 		  margin: 0px auto;
 		}
 		.list_news{
 		  list-style: none;
 		  display: grid;
 		  font-size: 14px;
+		  max-height: 420px;
+		  overflow-y: auto;
+		  padding: 0px;
 		}
 		.list_news li{
-		  width: 100%;
 		  background: #fff;
 		  padding: 15px 10px 15px 30px;
 		  margin-bottom: 15px;
+		  height: 57px;
+    	  display: flex;
 		}
 		.news_date{
 		  width: 20%; 
@@ -119,13 +125,21 @@ function my_recent_post()
 		  color: #5BCAF8; 
 		  padding: 5px 0px;
 		  font-weight: bold;
+		  font-size: 16px;
+		  font-family: "Overpass", sans-serif;
 		}
 		.news_title{
 		  width: 80%;
 		  float: left;
-		  color: #000;
+		  color: #222222;
+		  font-size: 16px;
 		  padding: 5px 0px;
+		  font-family: "Noto Sans JP", sans-serif;
 	  	}
+		.item_link{
+			width: 100%;
+			margin: auto 0px;
+		}
 		@media only screen and (max-width: 600px) {
 			.list_news{
 				padding: 10px !important;
@@ -137,12 +151,16 @@ function my_recent_post()
 				width: auto;
 				padding: 10px;
 				margin-bottom: 15px;
+				height: auto !important;
 			}
 			.news_date {
 				width: 30%;
 			}
 			.news_title {
 				width: 70%;
+			}
+			.header_title{
+				font-size: 50px !important; 
 			}
 		}
 	</style>
@@ -155,7 +173,7 @@ function my_recent_post()
       if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
 
            $html .= "<li>";
-           $html .= "<a href=\"" . get_permalink() . "\">";
+           $html .= "<a class=\"item_link\" href=\"" . get_permalink() . "\">";
            $html .= "<div class=\"news_date\">" . get_the_date( 'Y.m.d' ) . "</div>";
            $html .= "<div class=\"news_title\">" . get_the_title() . "</div>";
            $html .= "</a>";

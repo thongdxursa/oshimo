@@ -49,9 +49,12 @@ Oshimo is distributed under the terms of the GNU GPL.
 	margin: 0px !important;
 }
 .header_navigation {
-	font-size: 14px;
-    font-weight: bold;
-    font-family: sans-serif;
+    font-weight: bold !important;
+    font-family: 'Josefin Sans', sans-serif !important;
+}
+.footer_navigarion{
+	font-weight: 500 !important;
+	font-family: 'Overpass', sans-serif !important;
 }
 /*css banner image*/
 .panel_img_header{
@@ -80,31 +83,38 @@ Oshimo is distributed under the terms of the GNU GPL.
 	max-width: 100% !important;
 }
 .oshimo_contact_form .contact_form_panel{
-	max-width: 700px !important;
+	max-width: 720px !important;
 	margin-left: auto !important;
 	margin-right: auto !important;
 }
 .oshimo_contact_form .contact_form_sub_title{
-	font-size: 12px; 
+	font-size: 16px; 
 	color: #5BCAF8;
 	font-weight: bold;
 	text-align: center;
+	font-family: 'Josefin Sans', sans-serif;
 }
 .oshimo_contact_form .contact_form_header_title{
-	font-family: sans-serif; 
-	font-size: 50px; 
-	font-weight: 500;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 100px; 
+	font-weight: 600;
 	margin: 15px auto 60px;
 	text-align: center;
+	color: #222222;
 }
 .full_name_class, .company_name_class, .phonenumber_class, .email_class, .message_class{
 	font-size: 16px;
-	color: #000;
+	color: #222222;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-weight: 500;
 }
 .full_name_class input, .company_name_class input, .phonenumber_class input, .email_class input, .message_class textarea{
 	width: 100% !important;
-	padding: 15px;
+	padding: 20px 15px;
 	border: none;
+}
+.message_class textarea{
+	height: 260px !important;
 }
 .button_submit_form{
 	text-align: center;
@@ -114,7 +124,8 @@ Oshimo is distributed under the terms of the GNU GPL.
     background: linear-gradient(to right, #5BCAF8, #FAE072);
     padding: 15px 5px;
     border-radius: 100px;
-    width: 40%;
+    width: 323px;
+	height: 41px;
     position: relative;
     text-align: center;
     align-items: center;
@@ -129,18 +140,21 @@ Oshimo is distributed under the terms of the GNU GPL.
     display: block;
     border-right: 3px solid #000;
     border-bottom: 3px solid #000;
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     transform: translate(-50%, -50%) rotate(-45deg);
     z-index: 999;
 }
 .button_submit_form .btn_sub input[type=submit]{
 	position: absolute;
-    width: 95%;
+    width: 321px;
     background: #fff;
     border: none;
     border-radius: 30px;
-    height: 80%;
+    height: 61px;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-size: 16px;
+    font-weight: bold;
 }
 @media only screen and (max-width: 600px) {
 	.button_submit_form .btn_sub{
@@ -152,4 +166,13 @@ Oshimo is distributed under the terms of the GNU GPL.
 	.oshimo_contact_form{
 		padding-top: 10% !important;
 	}
+	.oshimo_contact_form .contact_form_header_title{
+		font-size: 50px !important;
+	}
+}
+/*css page*/
+.wp-block-post-title{
+	font-family: 'Josefin Sans', sans-serif !important;
+    text-align: center !important;
+    color: #222222 !important;
 }
